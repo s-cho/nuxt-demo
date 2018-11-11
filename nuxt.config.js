@@ -43,7 +43,11 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     // Doc: https://buefy.github.io/#/documentation
-    'nuxt-buefy'
+    'nuxt-buefy',
+    ['nuxt-buefy', {
+      defaultDayNames: ['日','月','火','水','木','金','土'],
+      defaultMonthNames: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+    }]
   ],
   /*
   ** Axios module configuration

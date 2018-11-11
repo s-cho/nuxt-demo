@@ -1,6 +1,6 @@
 <template>
   <div class="clock">
-    <h1>{{year}}年{{month}}月{{day}}日 ({{weekday}}) {{hours}}:{{minutes}}</h1>
+    <h1>{{year}}年{{month}}月{{day}}日 ({{weekday}}) {{hours}}:{{minutes}}:{{seconds}}</h1>
   </div>
 </template>
 
@@ -14,7 +14,6 @@ export default {
   data() {
     return {
       date: new Date(),
-      // eventDate: this.$store.state.formData.eventDate,
     }
   },
   computed: {
@@ -54,7 +53,7 @@ export default {
 
 <style scoped>
   .clock {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
   }
 </style>
 

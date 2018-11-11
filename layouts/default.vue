@@ -1,17 +1,17 @@
 <template>
   <div>
     <div class="top-bar">
+      <nuxt-link to="/setting">
       <a class="btn-settings" @click="isComponentModalActive = true">
         <b-icon icon="settings" type="is-dark" size="is-medium"/>
       </a>
-      <Clock/>
+      </nuxt-link>
+      <h1 id="logo">みんなの情熱大学</h1>
+      <!-- <clock/> -->
     </div>
     <section class="main-content">
       <div class="container">
         <nuxt />
-        <b-modal :active.sync="isComponentModalActive" has-modal-card>
-            <modal-form v-bind="formProps"></modal-form>
-        </b-modal>
       </div>
     </section>
   </div>
@@ -26,19 +26,24 @@ export default {
   data() {
     return {
       isComponentModalActive: false,
-      // formProps: {
-      //   eventName: '',
-      //   eventDate: new Date()
-      // }
-    }
+      formProps: {
+        eventName: '',
+        eventDate: new Date()
+      }
+    } 
   }
 }
 </script>
 <style scoped>
   .top-bar {
     width: 100%;
-    background: rgba(0,0,0,0.1);
+    border-bottom: 1px solid gainsboro;
+    /* background: rgba(0,0,0,0.1); */
     padding: 10px;
+  }
+  #logo {
+    font-size: 1.4rem;
+    font-weight: bold;
   }
   /* .main-content {
   } */
