@@ -1,6 +1,6 @@
 # nuxt-demo
 
-> My priceless Nuxt.js project
+> A demonstration to display event countdown
 
 ## Build Setup
 
