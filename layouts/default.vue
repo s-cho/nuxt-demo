@@ -2,11 +2,11 @@
   <div>
     <div class="top-bar">
       <nuxt-link to="/setting">
-      <a class="btn-settings" @click="isComponentModalActive = true">
+      <a class="btn-settings">
         <b-icon icon="settings" type="is-dark" size="is-medium"/>
       </a>
       </nuxt-link>
-      <h1 id="logo">みんなの情熱大学</h1>
+      <h1 id="logo">COUNT-DOWN</h1>
       <!-- <clock/> -->
     </div>
     <section class="main-content">
@@ -18,18 +18,11 @@
 </template>
 
 <script>
-import Clock from '@/components/Clock'
-import ModalForm from '@/components/ModalForm'
 
 export default {
-  components: {Clock, ModalForm},
   data() {
     return {
-      isComponentModalActive: false,
-      formProps: {
-        eventName: '',
-        eventDate: new Date()
-      }
+
     } 
   }
 }

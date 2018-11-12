@@ -1,9 +1,13 @@
 <template>
   <div class="count-down">
     <h1>{{this.$store.state.formData.eventName}}</h1>
-      <div v-if="this.$store.state.isStart" class="timer">
-        <span class="h">{{hours}}</span><span class="m">{{minutes}}</span><span class="s">{{seconds}}</span>
-      </div>
+    <div v-if="this.$store.state.isStart && !isCountEnd" class="timer">
+      <span class="h">{{hours}}</span><span class="m">{{minutes}}</span><span class="s">{{seconds}}</span>
+    </div>
+    <div v-if="isCountEnd" class="action">
+      表示内容
+    </div>
+    <p>{{this.$store.state.formData.eventDetail}}</p>
   </div>
 </template>
 
@@ -16,7 +20,7 @@ export default {
   data() {
     return {
       date: new Date(),
-    }
+    } 
   },
   computed: {
     interval() {
@@ -26,17 +30,19 @@ export default {
       return Math.floor((this.$store.state.formData.eventDate - this.date) / 1000 )
     },
     hours() {
-      // return this.interval.getHours()
       return Math.floor(this.interval / 60 / 60)
     },
     minutes() {
-      // return this.interval.getMinutes()
-      return Math.floor(this.interval / 60) % 60
+      return zeroPadding(Math.floor(this.interval / 60) % 60,2)
     },
     seconds() {
-      // return this.interval.getSeconds()
-      return this.interval % 60
+      return zeroPadding(this.interval % 60,2)
+    },
+    isCountEnd() {
+      return this.$store.state.isStart && this.interval == 0
     }
+  },
+  watched: {
     
   },
   mounted() {
@@ -77,6 +83,12 @@ export default {
     content: ":";
     font-size: 0.8em;
     margin: 20px;
+  }
+  .action {
+    background: black;
+    width: 100%;
+    height: 50vh;
+    color: white;
   }
   
   @keyframes kf1 {

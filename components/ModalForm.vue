@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form action="">
     <b-field label="イベント名">
         <b-input
           type="text"
@@ -18,6 +18,7 @@
           editable>
         </b-datepicker>
         <b-timepicker
+          v-model="time"
           class="level-item"
           icon="clock"
           editable>
@@ -33,44 +34,43 @@
         </b-input>
     </b-field>
     <nuxt-link to="/">
-      <button @click="startCount()" class="button is-primary">カウント開始</button>
+      <button type="submit" @click="startCount()" class="button" v-bind:disabled="disabled">カウント開始</button>
     </nuxt-link>
   </form>
 </template>
 
 <script>
 export default {
-  // props: {
-  //   eventName: {
-  //     type:String,
-  //     default:'a'
-  //   },
-  //   eventDate: {
-  //     type:Date,
-  //     default:new Date()
-  //   },
-  //   eventDetail: {
-  //     type:String,
-  //     default:''
-  //   }
-  // },
   data() {
     return {
       date:new Date(),
+      time:new Date(),
       formProps: {
         eventName: '',
-        eventDate: this.date,
+        eventDate: new Date(),
         eventDetail: ''
       },
     }
   },
+  computed: {
+    inputDate() {
+      return new Date(
+        this.date.toLocaleDateString()
+         + ' ' + 
+        this.time.toLocaleTimeString()
+      )
+    },
+    disabled() {
+      return this.inputDate <= new Date()
+    }
+  },
+
   methods: {
     startCount() {
       this.$store.commit('start')
       this.$store.commit('setEventName',this.formProps.eventName)
-      this.$store.commit('setEventDate',this.date)
-      console.log(this.formProps.eventDate)
-      console.log(this.$store.state.formData.eventName)
+      this.$store.commit('setEventDate',this.inputDate)
+      this.$store.commit('setEventDetail',this.formProps.eventDetail)
     }
   }
 }

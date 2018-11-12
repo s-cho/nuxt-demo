@@ -8,7 +8,8 @@ const createStore = () => {
       // イベント情報
       formData: {
         eventName:'',
-        eventDate: new Date()
+        eventDate: new Date(),
+        eventDetail: ''
       }
     }),
     mutations: {
@@ -17,6 +18,9 @@ const createStore = () => {
       },
       setEventDate(state, inputDate) {
         state.formData.eventDate = inputDate
+      },
+      setEventDetail(state, inputDetail) {
+        state.formData.eventDetail = inputDetail
       },
       start(state) {
         state.isStart = true

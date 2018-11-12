@@ -53,7 +53,7 @@ export default {
 
 <style scoped>
   .clock {
-    /* font-size: 1.5rem; */
+    font-size: 1.5rem;
   }
 </style>
 
