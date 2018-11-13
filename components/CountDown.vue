@@ -1,11 +1,21 @@
 <template>
-  <div class="count-down">
-    <h1>{{this.$store.state.formData.eventName}}</h1>
-    <div v-if="this.$store.state.isStart && !isCountEnd" class="timer">
-      <span class="h">{{hours}}</span><span class="m">{{minutes}}</span><span class="s">{{seconds}}</span>
+  <div>
+    <div v-if="this.$store.state.isStart && !isCountEnd">
+
+      <div class="count-down">
+        <p class="event-name">
+          {{this.$store.state.formData.eventName}}
+        </p>
+        <div class="time">
+          <span v-show="!isCountNine" class="time-before">開始まで</span><span v-show="hours != 0" class="hh">{{hours}}</span><span v-show="!isCountNine" class="mm">{{minutes}}</span><span v-show="!isCountNine" class="ss">{{seconds}}</span>
+          <span v-show="isCountNine" class="s">{{secondsNomal}}</span>
+        </div>
+      </div>
     </div>
-    <div v-if="isCountEnd" class="action">
-      <p class="event-detail">{{this.$store.state.formData.eventDetail}}</p>
+    <div v-if="isCountEnd" class="display-content">
+      <p class="event-detail">      
+        {{this.$store.state.formData.eventDetail}}       
+      </p>
     </div>
   </div>
 </template>
@@ -37,8 +47,14 @@ export default {
     seconds() {
       return zeroPadding(this.interval % 60,2)
     },
+    secondsNomal() {
+      return this.interval % 60
+    },
     isCountEnd() {
       return this.$store.state.isStart && this.interval == 0
+    },
+    isCountNine() {
+      return this.interval < 10
     }
   },
   watched: {
@@ -57,42 +73,58 @@ export default {
 </script>
 
 <style scoped>
-  .timer {
-    margin: auto;
-    width: fit-content;
+  .count-down {
+    position: relative;
     font-size: 8rem;
-    color: red;
-    /* font-weight: bold; */ 
-    /* font-family: fantasy; */
-    animation-name: kf1;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
+  }
+  .event-name {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 0 6rem;
+    font-size: 2.5rem;
+    /* top: -2rem;  */
+    bottom: 15rem;
+  }
+  .time {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+  }
+  .time-before {
+    position: absolute;
+    bottom: 2.5rem;
+    left: -120px;
+    font-size: 1.5rem;
+    color: #e0e0e0;
   }
   
-  .h, .m, .s {
+  .hh, .mm, .ss {
     /* background: black;
     display: inline-block;
     width: 200px;
     padding: 5px;
     border:1px solid gainsboro; */
     position: relative;
-    color: red;
+    /* color: red; */
   }
-  .h:after, .m:after{
+  .hh:after, .mm:after{
     content: ":";
     font-size: 0.8em;
     margin: 20px;
   }
-  .action {
-    background: black;
-    width: 100%;
-    height: 100vh;
-    color: white;
+  .s {
+    color:red;
+    font-size: 12rem;
+    animation-name: kf1;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
   }
+
   .event-detail {
-    font-size: 3rem;
-    text-align: center;
-    vertical-align: middle;
+    padding: 2rem;
+    font-size: 4rem;
+    /* vertical-align: middle; */
   }
   
   @keyframes kf1 {

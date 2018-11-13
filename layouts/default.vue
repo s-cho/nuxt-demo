@@ -1,12 +1,10 @@
 <template>
   <div>
     <div class="top-bar">
-      <nuxt-link to="/setting">
-      <a class="btn-settings">
-        <b-icon icon="settings" type="is-dark" size="is-medium"/>
-      </a>
-      </nuxt-link>
       <h1 id="logo">COUNT-DOWN</h1>
+      <nuxt-link to="/setting" class="btn-settings">
+        <b-icon icon="settings" type="is-dark" size="is-medium"/>
+      </nuxt-link>
       <!-- <clock/> -->
     </div>
     <section class="main-content">
@@ -33,8 +31,10 @@ export default {
     border-bottom: 1px solid gainsboro;
     /* background: rgba(0,0,0,0.1); */
     padding: 10px;
+    overflow: hidden;
   }
   #logo {
+    float:left;
     font-size: 1.4rem;
     font-weight: bold;
   }

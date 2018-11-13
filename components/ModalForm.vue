@@ -34,7 +34,10 @@
         </b-input>
     </b-field>
     <nuxt-link to="/action">
-      <button type="submit" @click="startCount()" class="button" v-bind:disabled="disabled">カウント開始</button>
+      <button type="submit"
+        class="button is-danger"
+        v-bind:disabled="disabled" 
+        @click="startCount()">カウント開始</button>
     </nuxt-link>
   </form>
 </template>
@@ -46,9 +49,9 @@ export default {
       date:new Date(),
       time:new Date(),
       formProps: {
-        eventName: '',
+        eventName: '【未経験可！】Webサイトを作るエンジニアになりたい方の入門講座',
         eventDate: new Date(),
-        eventDetail: ''
+        eventDetail: '開催します！'
       },
     }
   },
