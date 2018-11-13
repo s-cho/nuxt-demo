@@ -33,7 +33,7 @@
         >
         </b-input>
     </b-field>
-    <nuxt-link to="/">
+    <nuxt-link to="/action">
       <button type="submit" @click="startCount()" class="button" v-bind:disabled="disabled">カウント開始</button>
     </nuxt-link>
   </form>

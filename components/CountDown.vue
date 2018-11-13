@@ -5,9 +5,8 @@
       <span class="h">{{hours}}</span><span class="m">{{minutes}}</span><span class="s">{{seconds}}</span>
     </div>
     <div v-if="isCountEnd" class="action">
-      表示内容
+      <p class="event-detail">{{this.$store.state.formData.eventDetail}}</p>
     </div>
-    <p>{{this.$store.state.formData.eventDetail}}</p>
   </div>
 </template>
 
@@ -87,8 +86,13 @@ export default {
   .action {
     background: black;
     width: 100%;
-    height: 50vh;
+    height: 100vh;
     color: white;
+  }
+  .event-detail {
+    font-size: 3rem;
+    text-align: center;
+    vertical-align: middle;
   }
   
   @keyframes kf1 {

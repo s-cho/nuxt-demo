@@ -1,16 +1,14 @@
 <template>
   <section class="section">
-    <CountDown/>
+    <Clock/>
   </section>
 </template>
 
 <script>
-
-import CountDown from '@/components/CountDown'
-
+import Clock from '@/components/Clock'
 export default {
-  name: 'HomePage',
-  components: {CountDown},
+  name: 'Home',
+  components: {Clock},
   data() {
       return {
 
