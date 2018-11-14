@@ -13,9 +13,7 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   /*
@@ -26,15 +24,12 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [
-    {src: '~/assets/css/custom.css'}
-  ],
+  css: [{ src: '~/assets/css/custom.css' }],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-  ],
+  plugins: [],
 
   /*
   ** Nuxt.js modules
@@ -44,10 +39,26 @@ module.exports = {
     '@nuxtjs/axios',
     // Doc: https://buefy.github.io/#/documentation
     'nuxt-buefy',
-    ['nuxt-buefy', {
-      defaultDayNames: ['日','月','火','水','木','金','土'],
-      defaultMonthNames: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
-    }]
+    [
+      'nuxt-buefy',
+      {
+        defaultDayNames: ['日', '月', '火', '水', '木', '金', '土'],
+        defaultMonthNames: [
+          '1月',
+          '2月',
+          '3月',
+          '4月',
+          '5月',
+          '6月',
+          '7月',
+          '8月',
+          '9月',
+          '10月',
+          '11月',
+          '12月'
+        ]
+      }
+    ]
   ],
   /*
   ** Axios module configuration
@@ -71,8 +82,8 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/,
-          options : {
-            fix : true
+          options: {
+            fix: true
           }
         })
       }

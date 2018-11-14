@@ -8,16 +8,14 @@
 import Clock from '@/components/Clock'
 export default {
   name: 'Home',
-  components: {Clock},
+  components: { Clock },
   data() {
-      return {
-
-      }
+    return {}
   }
 }
 </script>
 <style scoped>
-  .section {
-    text-align: center;
-  }
+.section {
+  text-align: center;
+}
 </style>

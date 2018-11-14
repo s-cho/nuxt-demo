@@ -1,19 +1,19 @@
 <template>
   <div class="clock">
-    <h1>{{year}}年{{month}}月{{day}}日 ({{weekday}}) {{hours}}:{{minutes}}:{{seconds}}</h1>
+    <h1>{{ year }}年{{ month }}月{{ day }}日 ({{ weekday }}) {{ hours }}:{{ minutes }}:{{ seconds }}</h1>
   </div>
 </template>
 
 <script>
 const zeroPadding = (num, digit) => {
-    return (Array(digit).join("0") + num).slice(-digit)
+  return (Array(digit).join('0') + num).slice(-digit)
 }
-const weekdays = ["日", "月", "火", "水", "木", "金", "土"]
+const weekdays = ['日', '月', '火', '水', '木', '金', '土']
 
 export default {
   data() {
     return {
-      date: new Date(),
+      date: new Date()
     }
   },
   computed: {
@@ -45,15 +45,14 @@ export default {
   },
   methods: {
     setDate() {
-        this.date = new Date()
+      this.date = new Date()
     }
-  },
+  }
 }
 </script>
 
 <style scoped>
-  .clock {
-    font-size: 1.5rem;
-  }
+.clock {
+  font-size: 1.5rem;
+}
 </style>
-
