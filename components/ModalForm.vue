@@ -22,11 +22,11 @@
           editable/>
       </div>
     </b-field>         
-    <b-field label="イベント詳細">
+    <b-field label="表示内容">
       <b-input
         v-model="formProps.eventDetail"
         type="textarea"
-        placeholder="イベント詳細"
+        placeholder="表示内容"
       />
     </b-field>
     <nuxt-link to="/action">

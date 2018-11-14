@@ -139,6 +139,7 @@ export default {
 .event-detail {
   padding: 2rem;
   font-size: 4rem;
+  white-space: pre-wrap;
   /* vertical-align: middle; */
 }
 
