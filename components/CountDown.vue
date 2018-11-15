@@ -84,7 +84,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
 .count-down {
   position: relative;
   font-size: 8rem;
