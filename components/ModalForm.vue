@@ -67,6 +67,8 @@ export default {
   methods: {
     startCount() {
       this.$store.commit('start')
+      this.$store.commit('setStep', 1)
+      console.log(this.$store.state.step)
       this.$store.commit('setEventName', this.formProps.eventName)
       this.$store.commit('setEventDate', this.inputDate)
       this.$store.commit('setEventDetail', this.formProps.eventDetail)
@@ -74,3 +76,5 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+</style>
