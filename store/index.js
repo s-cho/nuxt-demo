@@ -5,6 +5,13 @@ const createStore = () => {
     state: () => ({
       // カウントダウン開始有無
       isStart: false,
+
+      // 0: カウント開始前
+      // 1: カウント中
+      // 2: カウント中（9秒前）
+      // 3: カウント終了後
+      step: 0,
+
       // イベント情報
       formData: {
         eventName: '',
@@ -27,6 +34,9 @@ const createStore = () => {
       },
       stop(state) {
         state.isStart = false
+      },
+      setStep(state, step) {
+        state.step = step
       }
     }
   })

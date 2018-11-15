@@ -1,35 +1,43 @@
 <template>
-  <div>
-    <div v-if="this.$store.state.isStart && !isCountEnd">
+  <div 
+    class="countdown"
 
-      <div class="count-down">
-        <p class="event-name">
-          {{ this.$store.state.formData.eventName }}
-        </p>
-        <div class="time">
-          <span 
-            v-show="!isCountNine" 
-            class="time-before">開始まで</span><span 
-              v-show="hours != 0" 
-              class="hh">{{ hours }}</span><span 
-                v-show="!isCountNine" 
-                class="mm">{{ minutes }}</span><span 
-                  v-show="!isCountNine" 
-                  class="ss">{{ seconds }}</span>
-          <span 
-            v-show="isCountNine" 
-            class="s">{{ secondsNomal }}</span>
-        </div>
-      </div>
-    </div>
+  >
+    <ul 
+      v-show="step == 1" 
+      class="level">
+      <!-- <li id="days">
+          <div class="number">00</div>
+          <div class="label">日</div>
+        </li> -->
+      <li 
+        v-show="hours != 0" 
+        class="hours level-item" >
+        <div>{{ hours }}</div>
+        <div class="label">時間</div>
+      </li>
+      <li class="minutes level-item">
+        <div>{{ minutes }}</div>
+        <div class="label">分</div>
+      </li>
+      <li class="seconds level-item">
+        <div>{{ seconds }}</div>
+        <div class="label">秒</div>
+      </li>
+    </ul>
     <div 
-      v-if="isCountEnd" 
-      class="display-content">
-      <p class="event-detail">      
-        {{ this.$store.state.formData.eventDetail }}       
-      </p>
+      v-show="step == 2" 
+      class="count-nine">
+      {{ secondsNomal }}
     </div>
   </div>
+  <!-- <div 
+      v-if="isCountEnd" 
+      class="display-content">
+      <p class="event-detail">
+        {{ this.$store.state.formData.eventDetail }}       
+      </p>
+    </div> -->
 </template>
 
 <script>
@@ -44,6 +52,9 @@ export default {
     }
   },
   computed: {
+    step() {
+      return this.$store.state.step
+    },
     interval() {
       if (this.$store.state.formData.eventDate < this.date) {
         return 0
@@ -59,7 +70,7 @@ export default {
       return zeroPadding(Math.floor(this.interval / 60) % 60, 2)
     },
     seconds() {
-      return zeroPadding(this.interval % 60, 2)
+      return zeroPadding(this.secondsNomal, 2)
     },
     secondsNomal() {
       return this.interval % 60
@@ -68,10 +79,25 @@ export default {
       return this.$store.state.isStart && this.interval == 0
     },
     isCountNine() {
-      return this.interval < 10
+      if (this.interval < 10) {
+        this.$store.commit('setStep', 2)
+        console.log(this.$store.state.step)
+        return true
+      }
+      return false
+      // return this.interval < 10
+      // this.interval = 1
     }
   },
-  watched: {},
+  watch: {
+    interval() {
+      if (this.interval == 0) {
+        this.$store.commit('setStep', 3)
+      } else if (this.interval < 10) {
+        this.$store.commit('setStep', 2)
+      }
+    }
+  },
   mounted() {
     this.setDate()
     setInterval(() => this.setDate(), 1000)
@@ -84,10 +110,50 @@ export default {
 }
 </script>
 
-<style scoped>
-.count-down {
+<style lang='scss' scoped>
+.countdown {
   position: relative;
-  font-size: 8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  margin: 0 auto;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+
+  ul {
+    padding: 15px 0 20px 0;
+    background: black;
+    color: #fff;
+    overflow: hidden;
+    border: 1px solid #202020;
+    border-width: 1px 0;
+    li {
+      margin: 0 -3px 0 0;
+      padding: 0;
+      display: inline-block;
+      width: 25%;
+      font-size: 72px;
+      font-size: 6vw;
+      text-align: center;
+
+      .label {
+        color: #adafb2;
+        font-size: 18px;
+        font-size: 1.5vw;
+      }
+    }
+  }
+
+  .count-nine {
+    font-size: 150px;
+    font-size: 12vw;
+    color: yellow;
+    text-shadow: yellow 0px 0px 30px;
+    animation-name: animation-01;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
 }
 .event-name {
   position: absolute;
@@ -111,47 +177,18 @@ export default {
   color: #e0e0e0;
 }
 
-.hh,
-.mm,
-.ss {
-  /* background: black;
-    display: inline-block;
-    width: 200px;
-    padding: 5px;
-    border:1px solid gainsboro; */
-  position: relative;
-  /* color: red; */
-}
-.hh:after,
-.mm:after {
-  content: ':';
-  font-size: 0.8em;
-  margin: 20px;
-}
-.s {
-  color: red;
-  font-size: 12rem;
-  animation-name: kf1;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-}
-
-.event-detail {
-  padding: 2rem;
-  font-size: 4rem;
-  white-space: pre-wrap;
-  /* vertical-align: middle; */
-}
-
-@keyframes kf1 {
+@keyframes animation-01 {
   0% {
-    transform: scale(1);
+    font-size: 1vw;
+    opacity: 0;
   }
-  10% {
-    transform: scale(1.1);
+  50% {
+    font-size: 18vw;
+    opacity: 1;
   }
-  80% {
-    transform: scale(1);
+  100% {
+    font-size: 60vw;
+    opacity: 0;
   }
 }
 </style>

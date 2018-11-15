@@ -1,7 +1,7 @@
 {
   "name": "nuxt-demo",
   "version": "1.0.0",
-  "description": "My priceless Nuxt.js project",
+  "description": "A demonstration to display event countdown",
   "author": "s-cho",
   "private": true,
   "scripts": {
@@ -14,10 +14,14 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.0.0",
     "cross-env": "^5.2.0",
+    "node-sass": "^4.10.0",
+    "npm": "^6.4.1",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.2.1",
-    "@nuxtjs/axios": "^5.0.0"
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",
