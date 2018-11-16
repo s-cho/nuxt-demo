@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="top-bar">
-      <h1 id="logo">COUNT-DOWN</h1>
+      <h1 id="logo">COUNTDOWN</h1>
       <nuxt-link 
         to="/setting" 
         class="btn-settings">
@@ -31,7 +31,7 @@ export default {
 .top-bar {
   width: 100%;
   border-bottom: 1px solid gainsboro;
-  /* background: rgba(0,0,0,0.1); */
+  background: #f5f5f5;
   padding: 10px;
   overflow: hidden;
 }

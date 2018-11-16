@@ -21,7 +21,7 @@
           icon="clock"
           editable/>
       </div>
-    </b-field>         
+    </b-field>
     <b-field label="表示内容">
       <b-input
         v-model="formProps.eventDetail"
@@ -35,6 +35,9 @@
         type="submit"
         class="button is-danger" 
         @click="startCount()">カウント開始</button>
+    </nuxt-link>
+    <nuxt-link to="/">
+      <button class="button">キャンセル</button>
     </nuxt-link>
   </form>
 </template>
