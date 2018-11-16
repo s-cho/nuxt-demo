@@ -1,5 +1,5 @@
 html {
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 * {
     box-sizing: border-box; 

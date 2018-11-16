@@ -38,6 +38,7 @@ export default {
   background: #0d0d0d;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   color: white;
 
   .btn-close {
