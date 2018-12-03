@@ -32,5 +32,15 @@
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-prettier": "2.6.2",
     "prettier": "1.14.3"
-  }
+  },
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-cho/nuxt-demo.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s-cho/nuxt-demo/issues"
+  },
+  "homepage": "https://github.com/s-cho/nuxt-demo#readme"
 }
