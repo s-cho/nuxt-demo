@@ -115,7 +115,7 @@ export default {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  width: 50%;
+  width: fit-content;
   margin: 0 auto;
   font-family: 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
@@ -123,18 +123,19 @@ export default {
 
   ul {
     padding: 15px 0 20px 0;
-    background: black;
+    background: rgb(0, 0, 0);
     color: #fff;
     overflow: hidden;
     border: 1px solid #202020;
     border-width: 1px 0;
     li {
-      margin: 0 -3px 0 0;
-      padding: 0;
+      // margin: 0 -3px 0 0;
+      padding: 0 30px;
       display: inline-block;
-      width: 25%;
+      // width: 25%;
+      // border: 1px solid #202020;
       font-size: 72px;
-      font-size: 6vw;
+      font-size: 8vw;
       text-align: center;
 
       .label {

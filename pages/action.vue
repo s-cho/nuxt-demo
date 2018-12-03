@@ -1,5 +1,5 @@
 <template>
-  <div class="screen">
+  <div class="screen" :style="bgColor">
     <nuxt-link 
       to="/" 
       class="btn-close">
@@ -24,7 +24,9 @@ export default {
   layout: 'fullscreen',
   components: { CountDown },
   data() {
-    return {}
+    return {
+      bgColor: 'background-color: '+ this.$store.state.formData.bgColor
+    }
   },
   computed: {
     step() {
@@ -60,7 +62,6 @@ export default {
     width: 80%;
     padding: 10px;
     font-size: 2.5vw;
-    color: yellowgreen;
     text-align: center;
     // background: gray;
   }
@@ -71,6 +72,7 @@ export default {
     width: 80%;
     padding: 20px;
     margin: 0 auto;
+    text-align: center;
     font-family: 'Arial Narrow', Arial, sans-serif;
     font-size: 4vw;
     white-space: pre-line;

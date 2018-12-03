@@ -9,7 +9,8 @@ const createStore = () => {
       formData: {
         eventName: '',
         eventDate: new Date(),
-        eventDetail: ''
+        eventDetail: '',
+        bgColor:'black'
       },
       // 0: カウント開始前
       // 1: カウント中
@@ -29,6 +30,9 @@ const createStore = () => {
       },
       setEventDetail(state, inputDetail) {
         state.formData.eventDetail = inputDetail
+      },
+      setBgColor(state, inputBgColor) {
+        state.formData.bgColor = inputBgColor
       },
       start(state) {
         state.isStart = true

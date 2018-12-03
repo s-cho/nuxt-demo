@@ -18,8 +18,11 @@ export default {
   name: 'Home',
   components: { Clock },
   data() {
-    return {
-      eventList: this.$store.state.eventList.data.events
+    return {}
+  },
+  computed: {
+    eventList() {
+      return this.$store.state.eventList.data.events
     }
   },
   mounted() {

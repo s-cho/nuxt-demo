@@ -1,9 +1,6 @@
 <template>
   <section class="section">
-    <h1 class="title is-3">設定</h1>
-    <!-- <b-modal :active.sync="isComponentModalActive" has-modal-card> -->
     <modal-form v-bind="formProps"/>
-    <!-- </b-modal> -->
   </section>
 </template>
 <script>
