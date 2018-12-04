@@ -56,7 +56,7 @@
               <td>文字色</td>
               <td>      
                 <input
-                  v-model="formProps.bgColor"
+                  v-model="formProps.fontColor"
                   class="color-picker"
                   type="color"/>
               </td>
@@ -71,7 +71,7 @@
             </tr>
             <tr><th colspan="2">タイマー</th></tr>
             <tr>
-              <td>文字色</td>
+              <td>背景色</td>
               <td>      
                 <input
                   v-model="formProps.bgColor"
@@ -80,17 +80,26 @@
               </td>
             </tr>
             <tr>
+              <td>文字色</td>
+              <td>      
+                <input
+                  v-model="formProps.fontColor"
+                  class="color-picker"
+                  type="color"/>
+              </td>
+            </tr>
+            <tr>
               <td>文字サイズ</td>
               <td>      
                 <input
-                  v-model="formProps.bgColor"
+                  v-model="formProps.x"
                   type="range"/>
               </td>
             </tr>
           </table>
           </div>
         <div class="view level-item" :style="bgColor">
-          dsfafdads
+          <p :style="fontColor" style="text-align:center">{{formProps.eventName}}<br><span style="font-size:5vw">00:59</span></p>
         </div>
 
         </div>
@@ -119,7 +128,8 @@ export default {
         eventName: 'Webサイトを作るエンジニアになりたい方の入門講座',
         eventDate: new Date(),
         eventDetail: '開催します！',
-        bgColor: '#ff0000'
+        bgColor: '#ff0000',
+        fontColor: 'white'
       },
     }
   },
@@ -134,6 +144,9 @@ export default {
     },
     bgColor() {
       return 'background-color:' + this.formProps.bgColor
+    },
+    fontColor() {
+      return 'color:' + this.formProps.fontColor
     }
   },
   methods: {
