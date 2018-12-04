@@ -1,5 +1,7 @@
 <template>
-  <div class="screen" :style="bgColor">
+  <div 
+    :style="bgColor" 
+    class="screen">
     <nuxt-link 
       to="/" 
       class="btn-close">
@@ -9,7 +11,7 @@
         size="is-medium"/>
     </nuxt-link>
     <p 
-      v-show="step == 1 || step == 3" 
+      v-show="step == 1" 
       class="event-name">{{ this.$store.state.formData.eventName }}</p>
     <CountDown v-show="step == 1 || step == 2"/>
     <p 
@@ -25,7 +27,7 @@ export default {
   components: { CountDown },
   data() {
     return {
-      bgColor: 'background-color: '+ this.$store.state.formData.bgColor
+      bgColor: 'background-color: ' + this.$store.state.formData.bgColor
     }
   },
   computed: {

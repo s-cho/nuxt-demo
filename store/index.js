@@ -10,7 +10,7 @@ const createStore = () => {
         eventName: '',
         eventDate: new Date(),
         eventDetail: '',
-        bgColor:'black'
+        bgColor: 'black'
       },
       // 0: カウント開始前
       // 1: カウント中

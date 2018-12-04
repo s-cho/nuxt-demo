@@ -1,7 +1,6 @@
 <template>
   <div 
     class="countdown"
-
   >
     <ul 
       v-show="step == 1" 
@@ -31,13 +30,6 @@
       {{ secondsNomal }}
     </div>
   </div>
-  <!-- <div 
-      v-if="isCountEnd" 
-      class="display-content">
-      <p class="event-detail">
-        {{ this.$store.state.formData.eventDetail }}       
-      </p>
-    </div> -->
 </template>
 
 <script>
@@ -123,10 +115,10 @@ export default {
 
   ul {
     padding: 15px 0 20px 0;
-    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.1);
     color: #fff;
     overflow: hidden;
-    border: 1px solid #202020;
+    // border: 1px solid #202020;
     border-width: 1px 0;
     li {
       // margin: 0 -3px 0 0;
@@ -139,7 +131,8 @@ export default {
       text-align: center;
 
       .label {
-        color: #adafb2;
+        color: #fff;
+        opacity: 0.8;
         font-size: 18px;
         font-size: 1.5vw;
       }

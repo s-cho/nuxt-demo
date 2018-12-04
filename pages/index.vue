@@ -6,7 +6,7 @@
       v-for="event in eventList" 
       :key="event.event_id" 
       class="event-item">
-      <datetime><small>{{ event.started_at }}</small></datetime><br>
+      <span><small>{{ event.started_at }}</small></span><br>
       {{ event.title }}
     </div>
   </section>
@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     eventList() {
-      return this.$store.state.eventList.data.events
+    return this.$store.state.eventList.data.events
     }
   },
   mounted() {
@@ -35,7 +35,7 @@ export default {
   border-bottom: 1px solid gainsboro;
   padding: 10px;
 
-  datetime {
+  span {
     color: gray;
   }
 }
