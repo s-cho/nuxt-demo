@@ -163,6 +163,7 @@ export default {
   tr {
     border-bottom: 1px solid gainsboro;
     th {
+      font-size: 0.9em;
       text-align: center;
       background:gainsboro;
     }
