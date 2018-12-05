@@ -19,12 +19,12 @@ export default {
   components: { Clock },
   data() {
     return {
-      eventList:[]
+      eventList: []
     }
   },
   computed: {},
   mounted() {
-   this.$store.dispatch('getEventList').then(() => {
+    this.$store.dispatch('getEventList').then(() => {
       this.eventList = this.$store.state.eventList.data.events
     })
   }

@@ -39,68 +39,72 @@
         icon="brush">
         <div class="level">
           <div class="level-left">
-          <!-- テーマ設定表 -->
-          <table class="table-config-theme">
-            <tr><th colspan="2">背景</th></tr>
-            <tr>
-              <td>背景色</td>
-              <td>
-                <input
-                  v-model="formProps.bgColor"
-                  class="color-picker"
-                  type="color"/>
-              </td>
-            </tr>
-            <tr><th colspan="2">イベント名</th></tr>
-            <tr>
-              <td>文字色</td>
-              <td>      
-                <input
-                  v-model="formProps.fontColor"
-                  class="color-picker"
-                  type="color"/>
-              </td>
-            </tr>
-            <tr>
-              <td>文字サイズ</td>
-              <td>      
-                 <input
-                  v-model="formProps.bgColor"
-                  type="range"/>
-              </td>
-            </tr>
-            <tr><th colspan="2">タイマー</th></tr>
-            <tr>
-              <td>背景色</td>
-              <td>      
-                <input
-                  v-model="formProps.bgColor"
-                  class="color-picker"
-                  type="color"/>
-              </td>
-            </tr>
-            <tr>
-              <td>文字色</td>
-              <td>      
-                <input
-                  v-model="formProps.fontColor"
-                  class="color-picker"
-                  type="color"/>
-              </td>
-            </tr>
-            <tr>
-              <td>文字サイズ</td>
-              <td>      
-                <input
-                  v-model="formProps.x"
-                  type="range"/>
-              </td>
-            </tr>
-          </table>
+            <!-- テーマ設定表 -->
+            <table class="table-config-theme">
+              <tr><th colspan="2">背景</th></tr>
+              <tr>
+                <td>背景色</td>
+                <td>
+                  <input
+                    v-model="formProps.bgColor"
+                    class="color-picker"
+                    type="color">
+                </td>
+              </tr>
+              <tr><th colspan="2">イベント名</th></tr>
+              <tr>
+                <td>文字色</td>
+                <td>      
+                  <input
+                    v-model="formProps.fontColor"
+                    class="color-picker"
+                    type="color">
+                </td>
+              </tr>
+              <tr>
+                <td>文字サイズ</td>
+                <td>      
+                  <input
+                    v-model="formProps.bgColor"
+                    type="range">
+                </td>
+              </tr>
+              <tr><th colspan="2">タイマー</th></tr>
+              <tr>
+                <td>背景色</td>
+                <td>      
+                  <input
+                    v-model="formProps.bgColor"
+                    class="color-picker"
+                    type="color">
+                </td>
+              </tr>
+              <tr>
+                <td>文字色</td>
+                <td>      
+                  <input
+                    v-model="formProps.fontColor"
+                    class="color-picker"
+                    type="color">
+                </td>
+              </tr>
+              <tr>
+                <td>文字サイズ</td>
+                <td>      
+                  <input
+                    v-model="formProps.x"
+                    type="range">
+                </td>
+              </tr>
+            </table>
           </div>
-        <div class="view level-item" :style="bgColor">
-          <p :style="fontColor" style="text-align:center">{{formProps.eventName}}<br><span style="font-size:5vw">00:59</span></p>
-        </div>
+          <div 
+            :style="bgColor" 
+            class="view level-item">
+            <p 
+              :style="fontColor" 
+              style="text-align:center">{{ formProps.eventName }}<br><span style="font-size:5vw">00:59</span></p>
+          </div>
 
         </div>
       </b-tab-item>
@@ -130,7 +134,7 @@ export default {
         eventDetail: '開催します！',
         bgColor: '#ff0000',
         fontColor: 'white'
-      },
+      }
     }
   },
   computed: {
@@ -178,7 +182,7 @@ export default {
     th {
       font-size: 0.9em;
       text-align: center;
-      background:gainsboro;
+      background: gainsboro;
     }
     td {
       font-size: 0.8em;
@@ -188,6 +192,6 @@ export default {
 }
 .view {
   height: 300px;
-  background:black;
+  background: black;
 }
 </style>
