@@ -98,13 +98,14 @@
               </tr>
             </table>
           </div>
-          <div 
+          <scene/>
+          <!-- <div 
             :style="bgColor" 
             class="view level-item">
             <p 
               :style="fontColor" 
               style="text-align:center">{{ formProps.eventName }}<br><span style="font-size:5vw">00:59</span></p>
-          </div>
+          </div> -->
 
         </div>
       </b-tab-item>
@@ -123,7 +124,9 @@
 </template>
 
 <script>
+import Scene from '@/components/Scene'
 export default {
+  components: { Scene },
   data() {
     return {
       date: new Date(),

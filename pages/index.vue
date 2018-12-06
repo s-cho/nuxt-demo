@@ -25,6 +25,7 @@ export default {
   computed: {},
   mounted() {
     this.$store.dispatch('getEventList').then(() => {
+      console.log('ok')
       this.eventList = this.$store.state.eventList.data.events
     })
   }
