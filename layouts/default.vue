@@ -1,21 +1,23 @@
 <template>
   <div>
     <div class="top-bar">
-      <h1 id="logo">COUNTDOWN</h1>
-      <nuxt-link 
-        to="/setting" 
-        class="btn-settings">
-        <b-icon 
-          icon="settings" 
-          type="is-dark" 
-          size="is-medium"/>
-      </nuxt-link>
+      <h1 
+        id="logo" 
+        class="top-bar-left">COUNTDOWN</h1>
+      <div class="top-bar-right">
+        <nuxt-link 
+          to="/setting" 
+          class="btn-settings">
+          <b-icon 
+            icon="settings" 
+            type="is-white" 
+            size="mdi-18px"/>
+        </nuxt-link>
+      </div>
       <!-- <clock/> -->
     </div>
     <section class="main-content">
-      <div class="container">
-        <nuxt />
-      </div>
+      <nuxt />
     </section>
   </div>
 </template>
@@ -27,24 +29,30 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .top-bar {
-  width: 100%;
-  border-bottom: 1px solid gainsboro;
-  background: #f5f5f5;
-  padding: 10px;
-  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+  background: #3b298f;
+  padding: 0 10px;
+  color: white;
+  .top-bar-left {
+    float: left;
+  }
+  .top-bar-right {
+    align-items: center;
+    float: right;
+  }
+  #logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
 }
-#logo {
-  float: left;
-  font-size: 1.4rem;
-  font-weight: bold;
+.main-content {
+  height: calc(100vh-56px);
+  overflow-y: auto;
 }
-/* .main-content {
-  } */
-.btn-settings {
-  float: right;
-}
+
 .btn-settings:hover {
   opacity: 0.8;
 }

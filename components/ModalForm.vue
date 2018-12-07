@@ -1,6 +1,6 @@
 <template>
-  <form action="">
-    <b-tabs class="b-tabs">
+  <div class="setting-pannel">
+    <b-tabs class="b-tabs-1">
       <b-tab-item 
         label="基本設定" 
         icon="calendar">
@@ -13,17 +13,17 @@
         </b-field>
         <b-field label="イベント日時">
           <div class="level">
-            <div class="level-left">
-              <b-datepicker
-                v-model="date"
-                :first-day-of-week="1"
-                icon="calendar-today"
-                editable/>
-              <b-timepicker
-                v-model="time"
-                icon="clock"
-                editable/>
-            </div>
+            <b-datepicker
+              v-model="date"
+              :first-day-of-week="1"
+              icon="calendar-today"
+              class="level-item"
+              editable/>
+            <b-timepicker
+              v-model="time"
+              icon="clock"
+              class="level-item"
+              editable/>
           </div>
         </b-field>
         <b-field label="表示内容">
@@ -98,29 +98,21 @@
               </tr>
             </table>
           </div>
-          <scene/>
-          <!-- <div 
-            :style="bgColor" 
-            class="view level-item">
-            <p 
-              :style="fontColor" 
-              style="text-align:center">{{ formProps.eventName }}<br><span style="font-size:5vw">00:59</span></p>
-          </div> -->
-
         </div>
       </b-tab-item>
     </b-tabs>
-    <nuxt-link to="/action">
+    <div class="btn-area">
+      <!-- <nuxt-link to="/action"> -->
       <button 
         :disabled="disabled"
-        type="submit"
-        class="button is-danger" 
+        class="button is-link"
         @click="startCount()">カウント開始</button>
-    </nuxt-link>
-    <nuxt-link to="/">
-      <button class="button">キャンセル</button>
-    </nuxt-link>
-  </form>
+      <!-- </nuxt-link> -->
+      <nuxt-link to="/">
+        <button class="button">キャンセル</button>
+      </nuxt-link>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -170,8 +162,24 @@ export default {
 }
 </script>
 <style lang="scss">
-.b-tabs .tab-content {
-  overflow: auto !important;
+.setting-pannel {
+  position: relative;
+  .b-tabs-1 {
+    height:calc(100%-20px);
+    // background: red;
+    .tab-content {
+      overflow: auto !important;
+      // background: yellow;
+    }
+  }
+  .btn-area {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(255,255,255,0.9);
+    border-top: 1px solid gainsboro;
+  }
 }
 .color-picker {
   width: 50px;
@@ -192,9 +200,5 @@ export default {
       padding: 2px 10px;
     }
   }
-}
-.view {
-  height: 300px;
-  background: black;
 }
 </style>

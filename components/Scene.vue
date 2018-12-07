@@ -1,15 +1,7 @@
 <template>
   <div 
     :style="bgColor" 
-    class="screen">
-    <nuxt-link 
-      to="/" 
-      class="btn-close">
-      <b-icon 
-        icon="close" 
-        type="is-light" 
-        size="is-medium"/>
-    </nuxt-link>
+    class="scene">
     <p 
       v-show="step == 1" 
       class="event-name">{{ this.$store.state.formData.eventName }}</p>
@@ -37,25 +29,11 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-.screen {
-  margin: auto;
-  background: #0d0d0d;
-  width: calc(50vh*3/2);
-  height: 50vh;
+.scene {
+  width: 100%;
+  height: 100%; 
+  background:white;
   overflow: hidden;
-  color: white;
-
-  .btn-close {
-    opacity: 0.1;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
   .event-name {
     position: absolute;
     top: 30px;
@@ -65,7 +43,6 @@ export default {
     padding: 10px;
     font-size: 2.5vw;
     text-align: center;
-    // background: gray;
   }
   .event-detail {
     position: relative;
