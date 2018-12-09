@@ -1,7 +1,10 @@
 <template>
   <div class="level">
     <div class="level-item">
-      <scene/>
+          <button 
+        class="button"
+        @click="openFullscreen()">full</button> 
+      <scene id="preview"/>
     </div>
     <div class="level-right">
       <modal-form 
@@ -21,6 +24,20 @@ export default {
       formProps: {
         eventName: '',
         eventDate: new Date()
+      }
+    }
+  },
+  methods: {
+    openFullscreen() {
+    let elem = document.getElementById('preview')
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen()
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen()
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        elem.webkitRequestFullscreen()
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen()
       }
     }
   }
