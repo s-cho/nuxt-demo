@@ -10,17 +10,17 @@
           <div class="label">日</div>
         </li> -->
       <li 
-        v-show="hours != 0" 
+        v-show="hours != 0"
         class="hours level-item" >
-        <div>{{ hours }}</div>
+        <div :style="timerFontColor">{{ hours }}</div>
         <div class="label">時間</div>
       </li>
       <li class="minutes level-item">
-        <div>{{ minutes }}</div>
+        <div :style="timerFontColor">{{ minutes }}</div>
         <div class="label">分</div>
       </li>
       <li class="seconds level-item">
-        <div>{{ seconds }}</div>
+        <div :style="timerFontColor">{{ seconds }}</div>
         <div class="label">秒</div>
       </li>
     </ul>
@@ -48,11 +48,11 @@ export default {
       return this.$store.state.step
     },
     interval() {
-      if (this.$store.state.formData.eventDate < this.date) {
+      if (this.$store.state.eventDate < this.date) {
         return 0
       }
       return Math.floor(
-        (this.$store.state.formData.eventDate - this.date) / 1000
+        (this.$store.state.eventDate - this.date) / 1000
       )
     },
     hours() {
@@ -79,7 +79,10 @@ export default {
       return false
       // return this.interval < 10
       // this.interval = 1
-    }
+    },
+    timerFontColor() {
+      return 'color: ' + this.$store.state.timer.fontColor
+    },
   },
   watch: {
     interval() {

@@ -6,11 +6,27 @@ const createStore = () => {
     state: () => ({
       eventList: [],
       // イベント情報
-      formData: {
-        eventName: 'イベント名を入力してください',
-        eventDate: new Date(),
-        eventDetail: '表示内容を入力してください',
-        bgColor: ''
+      bgColor: '',
+      eventName: {
+        text: 'イベント名',
+        fontColor: '',
+        fontSize: 60
+      },
+      eventDate: new Date(),
+      // eventDetail: '表示内容を入力してください',
+      eventDetail: {
+        text: '表示内容',
+        fontColor: '',
+        fontSize: null
+      },
+      timer: {
+        bgColor: '',
+        fontColor: '',
+        fontSize: '',
+      },
+      countNine: {
+        fontColor: '',
+        fontSize: '',
       },
       // 0: カウント開始前
       // 1: カウント中
@@ -23,16 +39,19 @@ const createStore = () => {
         state.eventList = list
       },
       setEventName(state, inputName) {
-        state.formData.eventName = inputName
+        state.eventName = inputName
       },
       setEventDate(state, inputDate) {
-        state.formData.eventDate = inputDate
+        state.eventDate = inputDate
       },
       setEventDetail(state, inputDetail) {
-        state.formData.eventDetail = inputDetail
+        state.eventDetail = inputDetail
       },
       setBgColor(state, inputBgColor) {
-        state.formData.bgColor = inputBgColor
+        state.bgColor = inputBgColor
+      },
+      setTimer(state, inputTimer) {
+        state.timer = inputTimer
       },
       start(state) {
         state.isStart = true

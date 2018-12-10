@@ -5,12 +5,14 @@
     <p 
       v-show="step == 1" 
       class="event-name" 
-      contentEditable="true">{{ this.$store.state.formData.eventName }}</p>
+      :style="eventNameFontColor"
+      contentEditable="true">{{ eventName.text }}</p>
     <CountDown v-show="step == 1 || step == 2"/>
     <p 
       v-show="step == 3" 
-      class="event-detail" 
-      contentEditable="true">{{ this.$store.state.formData.eventDetail }}</p>
+      class="event-detail"
+      :style="eventDetailFontColor"
+      contentEditable="true">{{ eventDetail.text }}</p>
     <slot/>
   </div>
 </template>
@@ -21,10 +23,27 @@ export default {
   components: { CountDown },
   data() {
     return {
-      bgColor: 'background-color: ' + this.$store.state.formData.bgColor
     }
   },
   computed: {
+    bgColor() {
+      return 'background-color: ' + this.$store.state.bgColor
+    },
+    eventName() {
+      return this.$store.state.eventName
+    },
+    eventNameFontColor() {
+      return 'color: ' + this.eventName.fontColor
+    },
+    eventNameFontSize() {
+      return 'font-size: ' + this.eventName.fontSize + 'em'
+    },
+    eventDetail() {
+      return this.$store.state.eventDetail
+    },
+    eventDetailFontColor() {
+      return 'color: ' + this.eventDetail.fontColor
+    },
     step() {
       return this.$store.state.step
     }
