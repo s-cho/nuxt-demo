@@ -51,9 +51,7 @@ export default {
       if (this.$store.state.eventDate < this.date) {
         return 0
       }
-      return Math.floor(
-        (this.$store.state.eventDate - this.date) / 1000
-      )
+      return Math.floor((this.$store.state.eventDate - this.date) / 1000)
     },
     hours() {
       return Math.floor(this.interval / 60 / 60)
@@ -82,7 +80,7 @@ export default {
     },
     timerFontColor() {
       return 'color: ' + this.$store.state.timer.fontColor
-    },
+    }
   },
   watch: {
     interval() {

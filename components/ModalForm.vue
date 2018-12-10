@@ -38,29 +38,29 @@
         label="テーマ設定" 
         icon="brush">
         <div class="level">
-            <!-- テーマ設定表 -->
-            <table class="table-config-theme">
-              <tr><th colspan="2">背景</th></tr>
-              <tr>
-                <td>背景色</td>
-                <td>
-                  <input
-                    v-model="formProps.bgColor"
-                    class="color-picker"
-                    type="color">
-                </td>
-              </tr>
-              <tr><th colspan="2">イベント名</th></tr>
-              <tr>
-                <td>文字色</td>
-                <td>      
-                  <input
-                    v-model="formProps.eventName.fontColor"
-                    class="color-picker"
-                    type="color">
-                </td>
-              </tr>
-              <!-- <tr>
+          <!-- テーマ設定表 -->
+          <table class="table-config-theme">
+            <tr><th colspan="2">背景</th></tr>
+            <tr>
+              <td>背景色</td>
+              <td>
+                <input
+                  v-model="formProps.bgColor"
+                  class="color-picker"
+                  type="color">
+              </td>
+            </tr>
+            <tr><th colspan="2">イベント名</th></tr>
+            <tr>
+              <td>文字色</td>
+              <td>      
+                <input
+                  v-model="formProps.eventName.fontColor"
+                  class="color-picker"
+                  type="color">
+              </td>
+            </tr>
+            <!-- <tr>
                 <td>文字サイズ</td>
                 <td>      
                   <input
@@ -68,26 +68,26 @@
                     type="range" >{{formProps.eventName.fontSize}}
                 </td>
               </tr> -->
-              <tr><th colspan="2">タイマー</th></tr>
-              <tr>
-                <td>背景色</td>
-                <td>      
-                  <input
-                    v-model="formProps.timer.bgColor"
-                    class="color-picker"
-                    type="color">
-                </td>
-              </tr>
-              <tr>
-                <td>文字色</td>
-                <td>      
-                  <input
-                    v-model="formProps.timer.fontColor"
-                    class="color-picker"
-                    type="color">
-                </td>
-              </tr>
-              <!-- <tr>
+            <tr><th colspan="2">タイマー</th></tr>
+            <tr>
+              <td>背景色</td>
+              <td>      
+                <input
+                  v-model="formProps.timer.bgColor"
+                  class="color-picker"
+                  type="color">
+              </td>
+            </tr>
+            <tr>
+              <td>文字色</td>
+              <td>      
+                <input
+                  v-model="formProps.timer.fontColor"
+                  class="color-picker"
+                  type="color">
+              </td>
+            </tr>
+            <!-- <tr>
                 <td>文字サイズ</td>
                 <td>      
                   <input
@@ -95,17 +95,17 @@
                     type="range">
                 </td>
               </tr> -->
-              <tr><th colspan="2">表示内容</th></tr>
-              <tr>
-                <td>文字色</td>
-                <td>      
-                  <input
-                    v-model="formProps.eventDetail.fontColor"
-                    class="color-picker"
-                    type="color">
-                </td>
-              </tr>
-            </table>
+            <tr><th colspan="2">表示内容</th></tr>
+            <tr>
+              <td>文字色</td>
+              <td>      
+                <input
+                  v-model="formProps.eventDetail.fontColor"
+                  class="color-picker"
+                  type="color">
+              </td>
+            </tr>
+          </table>
         </div>
       </b-tab-item>
     </b-tabs>
@@ -153,9 +153,9 @@ export default {
         timer: {
           bgColor: '',
           fontColor: '',
-          fontSize: '',
+          fontSize: ''
         },
-        bgColor: '#ffffff',
+        bgColor: '#ffffff'
       }
     }
   },
@@ -177,14 +177,14 @@ export default {
   },
   watch: {
     formProps: {
-      handler: function(val){
+      handler: function(val) {
         this.$store.commit('setEventName', val.eventName)
         this.$store.commit('setEventDetail', val.eventDetail)
         this.$store.commit('setBgColor', val.bgColor)
         this.$store.commit('setTimer', val.timer)
       },
-      deep: true,
-    },
+      deep: true
+    }
     // 'formProps.eventName':function(val) {
     //   this.$store.commit('setEventName', val)
     // }
@@ -236,7 +236,6 @@ export default {
       background: aliceblue;
       padding: 2px 10px;
       color: blue;
-
     }
     td {
       font-size: 0.8em;

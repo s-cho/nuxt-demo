@@ -22,11 +22,11 @@ const createStore = () => {
       timer: {
         bgColor: '',
         fontColor: '',
-        fontSize: '',
+        fontSize: ''
       },
       countNine: {
         fontColor: '',
-        fontSize: '',
+        fontSize: ''
       },
       // 0: カウント開始前
       // 1: カウント中

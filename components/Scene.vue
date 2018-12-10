@@ -4,14 +4,14 @@
     class="scene">
     <p 
       v-show="step == 1" 
-      class="event-name" 
-      :style="eventNameFontColor"
+      :style="eventNameFontColor" 
+      class="event-name"
       contentEditable="true">{{ eventName.text }}</p>
     <CountDown v-show="step == 1 || step == 2"/>
     <p 
       v-show="step == 3" 
-      class="event-detail"
       :style="eventDetailFontColor"
+      class="event-detail"
       contentEditable="true">{{ eventDetail.text }}</p>
     <slot/>
   </div>
@@ -22,8 +22,7 @@ import CountDown from '@/components/CountDown'
 export default {
   components: { CountDown },
   data() {
-    return {
-    }
+    return {}
   },
   computed: {
     bgColor() {
