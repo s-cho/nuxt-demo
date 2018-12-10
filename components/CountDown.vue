@@ -1,7 +1,6 @@
 <template>
   <div 
     class="countdown"
-
   >
     <ul 
       v-show="step == 1" 
@@ -11,17 +10,17 @@
           <div class="label">日</div>
         </li> -->
       <li 
-        v-show="hours != 0" 
+        v-show="hours != 0"
         class="hours level-item" >
-        <div>{{ hours }}</div>
+        <div :style="timerFontColor">{{ hours }}</div>
         <div class="label">時間</div>
       </li>
       <li class="minutes level-item">
-        <div>{{ minutes }}</div>
+        <div :style="timerFontColor">{{ minutes }}</div>
         <div class="label">分</div>
       </li>
       <li class="seconds level-item">
-        <div>{{ seconds }}</div>
+        <div :style="timerFontColor">{{ seconds }}</div>
         <div class="label">秒</div>
       </li>
     </ul>
@@ -31,13 +30,6 @@
       {{ secondsNomal }}
     </div>
   </div>
-  <!-- <div 
-      v-if="isCountEnd" 
-      class="display-content">
-      <p class="event-detail">
-        {{ this.$store.state.formData.eventDetail }}       
-      </p>
-    </div> -->
 </template>
 
 <script>
@@ -56,12 +48,10 @@ export default {
       return this.$store.state.step
     },
     interval() {
-      if (this.$store.state.formData.eventDate < this.date) {
+      if (this.$store.state.eventDate < this.date) {
         return 0
       }
-      return Math.floor(
-        (this.$store.state.formData.eventDate - this.date) / 1000
-      )
+      return Math.floor((this.$store.state.eventDate - this.date) / 1000)
     },
     hours() {
       return Math.floor(this.interval / 60 / 60)
@@ -87,6 +77,9 @@ export default {
       return false
       // return this.interval < 10
       // this.interval = 1
+    },
+    timerFontColor() {
+      return 'color: ' + this.$store.state.timer.fontColor
     }
   },
   watch: {
@@ -115,7 +108,7 @@ export default {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  width: 50%;
+  width: fit-content;
   margin: 0 auto;
   font-family: 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
@@ -123,22 +116,24 @@ export default {
 
   ul {
     padding: 15px 0 20px 0;
-    background: black;
+    background: rgba(0, 0, 0, 0.1);
     color: #fff;
     overflow: hidden;
-    border: 1px solid #202020;
+    // border: 1px solid #202020;
     border-width: 1px 0;
     li {
-      margin: 0 -3px 0 0;
-      padding: 0;
+      // margin: 0 -3px 0 0;
+      padding: 0 30px;
       display: inline-block;
-      width: 25%;
+      // width: 25%;
+      // border: 1px solid #202020;
       font-size: 72px;
-      font-size: 6vw;
+      font-size: 8vw;
       text-align: center;
 
       .label {
-        color: #adafb2;
+        color: #fff;
+        opacity: 0.8;
         font-size: 18px;
         font-size: 1.5vw;
       }

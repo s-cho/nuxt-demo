@@ -1,36 +1,48 @@
 <template>
   <div 
     :style="bgColor" 
-    class="screen">
-    <nuxt-link 
-      to="/" 
-      class="btn-close">
-      <b-icon 
-        icon="close" 
-        type="is-light" 
-        size="is-medium"/>
-    </nuxt-link>
+    class="scene">
     <p 
       v-show="step == 1" 
-      class="event-name">{{ this.$store.state.formData.eventName }}</p>
+      :style="eventNameFontColor" 
+      class="event-name"
+      contentEditable="true">{{ eventName.text }}</p>
     <CountDown v-show="step == 1 || step == 2"/>
     <p 
       v-show="step == 3" 
-      class="event-detail">{{ this.$store.state.formData.eventDetail }}</p>
+      :style="eventDetailFontColor"
+      class="event-detail"
+      contentEditable="true">{{ eventDetail.text }}</p>
+    <slot/>
   </div>
 </template>
 
 <script>
 import CountDown from '@/components/CountDown'
 export default {
-  layout: 'fullscreen',
   components: { CountDown },
   data() {
-    return {
-      bgColor: 'background-color: ' + this.$store.state.formData.bgColor
-    }
+    return {}
   },
   computed: {
+    bgColor() {
+      return 'background-color: ' + this.$store.state.bgColor
+    },
+    eventName() {
+      return this.$store.state.eventName
+    },
+    eventNameFontColor() {
+      return 'color: ' + this.eventName.fontColor
+    },
+    eventNameFontSize() {
+      return 'font-size: ' + this.eventName.fontSize + 'em'
+    },
+    eventDetail() {
+      return this.$store.state.eventDetail
+    },
+    eventDetailFontColor() {
+      return 'color: ' + this.eventDetail.fontColor
+    },
     step() {
       return this.$store.state.step
     }
@@ -38,24 +50,12 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-.screen {
-  background: #0d0d0d;
-  width: 100vw;
-  height: 100vh;
+.scene {
+  width: 100%;
+  height: 100%;
+  background: white;
   overflow: hidden;
-  color: white;
-
-  .btn-close {
-    opacity: 0.1;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
+  position: relative;
   .event-name {
     position: absolute;
     top: 30px;
@@ -65,7 +65,6 @@ export default {
     padding: 10px;
     font-size: 2.5vw;
     text-align: center;
-    // background: gray;
   }
   .event-detail {
     position: relative;

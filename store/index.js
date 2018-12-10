@@ -6,29 +6,52 @@ const createStore = () => {
     state: () => ({
       eventList: [],
       // イベント情報
-      formData: {
-        eventName: '',
-        eventDate: new Date(),
-        eventDetail: ''
+      bgColor: '',
+      eventName: {
+        text: 'イベント名',
+        fontColor: '',
+        fontSize: 60
+      },
+      eventDate: new Date(),
+      // eventDetail: '表示内容を入力してください',
+      eventDetail: {
+        text: '表示内容',
+        fontColor: '',
+        fontSize: null
+      },
+      timer: {
+        bgColor: '',
+        fontColor: '',
+        fontSize: ''
+      },
+      countNine: {
+        fontColor: '',
+        fontSize: ''
       },
       // 0: カウント開始前
       // 1: カウント中
       // 2: カウント中（9秒前）
       // 3: カウント終了後
-      step: 0
+      step: 1
     }),
     mutations: {
       setEventList(state, list) {
         state.eventList = list
       },
       setEventName(state, inputName) {
-        state.formData.eventName = inputName
+        state.eventName = inputName
       },
       setEventDate(state, inputDate) {
-        state.formData.eventDate = inputDate
+        state.eventDate = inputDate
       },
       setEventDetail(state, inputDetail) {
-        state.formData.eventDetail = inputDetail
+        state.eventDetail = inputDetail
+      },
+      setBgColor(state, inputBgColor) {
+        state.bgColor = inputBgColor
+      },
+      setTimer(state, inputTimer) {
+        state.timer = inputTimer
       },
       start(state) {
         state.isStart = true
