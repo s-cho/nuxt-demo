@@ -13,7 +13,6 @@ const createStore = () => {
         fontSize: 60
       },
       eventDate: new Date(),
-      // eventDetail: '表示内容を入力してください',
       eventDetail: {
         text: '表示内容',
         fontColor: '',

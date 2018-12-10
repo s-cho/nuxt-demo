@@ -185,9 +185,6 @@ export default {
       },
       deep: true
     }
-    // 'formProps.eventName':function(val) {
-    //   this.$store.commit('setEventName', val)
-    // }
   },
   methods: {
     startCount() {
@@ -206,10 +203,8 @@ export default {
   position: relative;
   .b-tabs-1 {
     height: calc(100%-20px);
-    // background: red;
     .tab-content {
       overflow: auto !important;
-      // background: yellow;
     }
   }
   .btn-area {
