@@ -1,9 +1,11 @@
 <template>
   <div>
     <div class="top-bar">
-      <h1 
-        id="logo" 
-        class="top-bar-left">COUNTDOWN</h1>
+      <nuxt-link to="/">
+        <h1 
+          id="logo" 
+          class="top-bar-left">COUNTDOWN</h1>
+      </nuxt-link>
       <div class="top-bar-right">
         <nuxt-link 
           to="/setting" 
@@ -46,6 +48,7 @@ export default {
   #logo {
     font-size: 1.4rem;
     font-weight: bold;
+    color: white;
   }
 }
 .main-content {

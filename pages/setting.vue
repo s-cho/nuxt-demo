@@ -1,9 +1,19 @@
 <template>
   <div class="level">
+    <div class="scene-thumbs level-left">
+      <ol>
+        <li 
+          :class="{current: this.$store.state.step == 1}" 
+          @click="changeScene(1)">1</li>
+        <li 
+          :class="{current: this.$store.state.step == 2}" 
+          @click="changeScene(2)">2</li>
+        <li 
+          :class="{current: this.$store.state.step == 3}" 
+          @click="changeScene(3)">3</li>
+      </ol>
+    </div>
     <div class="level-item">
-          <button 
-        class="button"
-        @click="openFullscreen()">full</button> 
       <scene id="preview"/>
     </div>
     <div class="level-right">
@@ -29,29 +39,38 @@ export default {
   },
   methods: {
     openFullscreen() {
-    let elem = document.getElementById('preview')
+      let elem = document.getElementById('preview')
       if (elem.requestFullscreen) {
         elem.requestFullscreen()
-      } else if (elem.mozRequestFullScreen) { /* Firefox */
+      } else if (elem.mozRequestFullScreen) {
+        /* Firefox */
         elem.mozRequestFullScreen()
-      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+      } else if (elem.webkitRequestFullscreen) {
+        /* Chrome, Safari and Opera */
         elem.webkitRequestFullscreen()
-      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      } else if (elem.msRequestFullscreen) {
+        /* IE/Edge */
         elem.msRequestFullscreen()
       }
+    },
+    changeScene(index) {
+      this.$store.commit('setStep', index)
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 .level {
-  background: gray;
+  background: gainsboro;
 }
 .level-item {
   background: gainsboro;
   height: calc(100vh - 50px);
 }
-
+.level-left {
+  height: calc(100vh - 50px);
+  width: 10%;
+}
 .level-right {
   height: calc(100vh - 50px);
   width: 35%;
@@ -65,6 +84,34 @@ export default {
 }
 .scene {
   border: 1px solid gray;
-  transform: scale(0.8);
+  transform: scale(0.9);
+  .btn-fullscreen:hover {
+    opacity: 0.8;
+  }
+}
+
+.scene-thumbs {
+  padding: 15px;
+  text-align: center;
+  align-items: start;
+  border-right: 1px solid #bbbbbb;
+  ol {
+    width: 100%;
+    li {
+      display: block;
+      width: 100%;
+      height: 50px;
+      border: 1px solid #bbb;
+      margin-bottom: 15px;
+      background: white;
+      &:hover {
+        cursor: pointer;
+        border: 2px solid gray;
+      }
+    }
+    .current {
+      border: 2px solid blue;
+    }
+  }
 }
 </style>

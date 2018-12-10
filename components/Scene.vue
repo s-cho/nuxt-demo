@@ -4,11 +4,14 @@
     class="scene">
     <p 
       v-show="step == 1" 
-      class="event-name">{{ this.$store.state.formData.eventName }}</p>
+      class="event-name" 
+      contentEditable="true">{{ this.$store.state.formData.eventName }}</p>
     <CountDown v-show="step == 1 || step == 2"/>
     <p 
       v-show="step == 3" 
-      class="event-detail">{{ this.$store.state.formData.eventDetail }}</p>
+      class="event-detail" 
+      contentEditable="true">{{ this.$store.state.formData.eventDetail }}</p>
+    <slot/>
   </div>
 </template>
 
@@ -31,9 +34,10 @@ export default {
 <style lang='scss' scoped>
 .scene {
   width: 100%;
-  height: 100%; 
-  background:white;
+  height: 100%;
+  background: white;
   overflow: hidden;
+  position: relative;
   .event-name {
     position: absolute;
     top: 30px;

@@ -108,9 +108,16 @@
         class="button is-link"
         @click="startCount()">カウント開始</button>
       <!-- </nuxt-link> -->
-      <nuxt-link to="/">
-        <button class="button">キャンセル</button>
-      </nuxt-link>
+      <a 
+        class="button is-link" 
+        @click="$parent.openFullscreen()">
+        <span class="icon">
+          <b-icon
+            icon="fullscreen" 
+            type="is-white"/>
+        </span>
+        <span>全画面</span>
+      </a>
     </div>
   </div>
 </template>
@@ -124,9 +131,9 @@ export default {
       date: new Date(),
       time: new Date(),
       formProps: {
-        eventName: 'Webサイトを作るエンジニアになりたい方の入門講座',
+        eventName: 'イベント名を入力してください',
         eventDate: new Date(),
-        eventDetail: '開催します！',
+        eventDetail: '表示内容を入力してください',
         bgColor: '#ff0000',
         fontColor: 'white'
       }
@@ -165,7 +172,7 @@ export default {
 .setting-pannel {
   position: relative;
   .b-tabs-1 {
-    height:calc(100%-20px);
+    height: calc(100%-20px);
     // background: red;
     .tab-content {
       overflow: auto !important;
@@ -177,7 +184,7 @@ export default {
     bottom: 0;
     width: 100%;
     padding: 10px;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     border-top: 1px solid gainsboro;
   }
 }
@@ -186,8 +193,9 @@ export default {
   height: 25px;
 }
 .table-config-theme {
+  width: 100%;
   padding: 10px;
-  border: 1px solid gainsboro;
+  // border: 1px solid gainsboro;
   tr {
     border-bottom: 1px solid gainsboro;
     th {
